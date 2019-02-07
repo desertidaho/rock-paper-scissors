@@ -12,7 +12,6 @@ let winCondition = {
   scissors: 'paper'
 }
 
-//Mark's input to improve my functions
 function winObj() {
   let player = arrChoices[0]
   let comp = arrChoices[1]
@@ -34,12 +33,6 @@ function playerChoice(choice) {
   random()
 }
 
-function computerChoice(choice) {
-  document.getElementById('computer-img').innerHTML = `<img src="${options[choice]}" alt="" class="mt-5"></img>`
-  arrChoices.push(choice);
-  winner();
-}
-
 function random() {
   let choices = Object.keys(options)
   let choiceIndex = Math.floor(Math.random() * choices.length)
@@ -47,6 +40,11 @@ function random() {
   computerChoice(choice)
 }
 
+function computerChoice(choice) {
+  document.getElementById('computer-img').innerHTML = `<img src="${options[choice]}" alt="" class="mt-5"></img>`
+  arrChoices.push(choice);
+  winner();
+}
 
 let pscore = 0;
 let cscore = 0;
@@ -88,6 +86,7 @@ function winner() {
       document.getElementById('winner').innerText = "Tie"
     }
   }
+
   arrChoices = [];
   document.getElementById('pScore').innerText = `Score: ${pscore}`
   document.getElementById('cScore').innerText = `Score: ${cscore}`
